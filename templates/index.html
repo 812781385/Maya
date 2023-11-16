@@ -12,18 +12,48 @@
                 })
                 .catch(error => console.log(error));
         }
+        function getCopy() {
+            const result = document.getElementById('result');
+            const tempInput = document.createElement('input');
+            tempInput.value = result.textContent;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+        }
     </script>
     <style>
         .btn {
-            padding: 6px 10px;
+            padding: 6px 20px;
             margin-top: 10px;
+            cursor: pointer;
+            display: block;
+        }
+        img {
+            width: 260px;
+        }
+        #result-wrapper {
+            margin-top: 10px;
+            font-size: 12px;
+            background-color: #a1dc95;
+            border-radius: 8px;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            /* display: inline-block; */
+        }
+        .copy {
             cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <h1>对骂机器人。君子动口不动手，科技改变骂丫</h1>
-    <div id="result">人本初，性本善，锅里煮个大鸡蛋，给我吃我就干，不给我吃咱就散。</div>
-    <button class="btn" onclick="getRandomLine()">骂他</button>
+    <h1>对骂机器人，君子动口不动手</h1>
+    <img src="/static/1.jpg" alt="maya">
+    <div id="result-wrapper">
+        <span id="result">人本初，性本善，锅里煮个大鸡蛋，给我吃我就干，不给我吃咱就散。</span>
+        <span class="copy" onclick="getCopy()">copy</span>
+    </div>
+    <button class="btn" onclick="getRandomLine()">点击开骂</button>
 </body>
 </html>
