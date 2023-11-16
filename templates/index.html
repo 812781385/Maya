@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Random Line</title>
+    <script>
+        function getRandomLine() {
+            // 调用接口并显示结果
+            fetch('http://127.0.0.1:5000/get_random_line')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('result').textContent = data;
+                })
+                .catch(error => console.log(error));
+        }
+    </script>
+    <style>
+        .btn {
+            padding: 6px 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>对骂机器人。君子动口不动手，科技改变骂丫</h1>
+    <div id="result">人本初，性本善，锅里煮个大鸡蛋，给我吃我就干，不给我吃咱就散。</div>
+    <button class="btn" onclick="getRandomLine()">骂他</button>
+</body>
+</html>
